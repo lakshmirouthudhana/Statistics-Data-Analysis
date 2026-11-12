@@ -1,0 +1,80 @@
+Data Analysis Statistics Examination
+
+Section A
+
+*Q1. Variables*
+- *(a)* Course = *Nominal*, Satisfaction = *Ordinal*, Assignments = *Discrete*, Time = *Continuous*
+- *(b)* IDs ki order / quantity ledu, avi labels matrame. Mean 1002 ante em artham ledu.
+
+*Q2. Population / Sample*
+- *(a)* Population = *240 DA students*, Sample = *30 top students*
+- *(b)* *Inferential* - sample nunchi population gurinchi chepthunnam
+- *(c)* *Biased* - top students matrame teesukunnam kabatti mean 82 ekkuva vastundi, andari mean kadu.
+
+*Q3. Mean / Median / Mode*
+Data: 12, 15, 15, 18, 40. Sum = 100
+- Mean = 100 / 5 = *20*
+- Median = middle value = *15*
+- Mode = ekkuva sarlu = *15*
+- *(b)* *Median (15) best* - 40 outlier valla Mean 20 ki perigindi, typical time 15 ye.
+
+Section B
+
+*Q4. Variance*
+Data: 2, 4, 4, 6. Mean = 16/4 = *4*
+- *(b)* Deviations: -2, 0, 0, 2. Squared: 4, 0, 0, 4. Sum = *8*
+- *(c)* Pop Variance = 8 / 4 = *2*, Pop SD = √2 = *1.4142*
+- *(d)* Sample Variance = 8 / (4-1) = 8/3 = *2.6667*
+
+*Q5. Quartiles*
+Data: 4, 6, 7, 8, 9, 10, 12, 30. n=8
+- *(a)* Q1 position = 7 x 0.25 = 1.75. Q1 = 6 + 0.75 x (7-6) = *6.75*
+  Q3 position = 7 x 0.75 = 5.25. Q3 = 10 + 0.25 x (12-10) = *10.5*
+- *(b)* IQR = 10.5 - 6.75 = *3.75*
+- *(c)* Lower fence = 6.75 - 1.5 x 3.75 = *1.125*, Upper fence = 10.5 + 5.625 = *16.125*
+- *(d)* Outlier = *30* matrame
+- *(e)* Lower whisker = *4*, Upper whisker = *12* [30 ni vadilesi, fence lopala unna min/max]
+
+*Q6. Python Output*
+- `np.var([1,2,3], ddof=0)` = 0.666... -> *0.67*
+- `np.var([1,2,3], ddof=1)` = 1.0 -> *1.0*
+- `x[x > mean]` mean=2, >2 ante [3] -> *[3]*
+
+Section C
+
+*Q7. Covariance*
+X: 1,2,3,4. Y: 20,40,60,80
+- *(a)* Mean X = *2.5*, Mean Y = *50*
+- *(b)* Table:
+  X-dev: -1.5, -0.5, 0.5, 1.5
+  Y-dev: -30, -10, 10, 30
+  Product: 45, 5, 5, 45. Sum = *100*
+- *(c)* Sample Cov = 100 / (4-1) = *33.3333*
+- *(d)* Var X = (2.25+0.25+0.25+2.25)/3 = *1.6667*, Var Y = (900+100+100+900)/3 = *666.6667*
+- *(e)* r = 33.3333 / √(1.6667 x 666.6667) = 33.3333 / 33.3333 = *+1.0, Perfect Positive*
+
+*Q8. Conclusions*
+- *(a)* *r = -0.85 stronger* - absolute value peddadi. Negative ante okati perigithe inkoti thagguthundi.
+- *(b)* *Kadu.* r=0 ante linear relation ledu ani matrame. Idi Y = X² parabola, perfect non-linear relation undi.
+- *(c)* *Undefined* - Constant column variance = 0, divide by zero vasthundi.
+- *(d)* *Kadu.* Correlation ≠ Causation. Talent, interest lanti vere reasons undochu.
+
+Section D
+
+*Q9. Distributions*
+- *(a)* *Bernoulli(p=0.2)*
+- *(b)* *Binomial(n=6, p=0.5)*
+- *(c)* *Poisson(λ=2)* - 4 per hour ante 30 min ki 2
+- *(d)* *Normal(μ=100, σ=15)*
+- *(e)* *Uniform(a=5, b=15)* / Continuous Uniform
+
+*Q10. Probabilities*
+- *(a)* X ~ Bin(4, 0.5). P(X=2) = ⁶C₂ x (0.5)⁴ = 6 x 0.0625 = *0.375*
+  P(X ≥ 1) = 1 - P(0) = 1 - 0.0625 = *0.9375*
+- *(b)* (i) z = (60-50)/5 = *2*. P(Y>60) = 1 - Φ(2) = 1 - 0.9772499 = *0.0227501*
+  (ii) z1=-1, z2=+1. P = Φ(1) - Φ(-1) = 0.8413447 - 0.1586553 = *0.6826894*
+- *(c)* T ~ U[10,20]. Density f(15) = 1/(20-10) = *0.1*
+  P(12≤T≤16) = (16-12)/10 = *0.4*
+- *(d)* (i) `1 - stats.binom.cdf(2, 4, 0.5)` / `stats.binom.sf(2, 4, 0.5)`
+  (ii) `1 - stats.poisson.cdf(3, 3)` / `stats.poisson.sf(3, 3)`
+
